@@ -49,7 +49,7 @@ var app = {
         states[Connection.CELL_4G]  = 'Cell 4G connection';
         states[Connection.NONE]     = 'No network connection';
 
-        document.getElementById('conexao').innerHTML('Connection type: ' + states[networkState]);
+        document.getElementById('conexao').innerHTML ='Connection type: ' + states[networkState];
     }
     // Update DOM on a Received Event
     receivedEvent: function(id) {
