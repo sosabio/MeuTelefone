@@ -34,7 +34,6 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        this.conectado();
     },
 
 
@@ -50,7 +49,7 @@ var app = {
         states[Connection.CELL_4G]  = 'Cell 4G connection';
         states[Connection.NONE]     = 'No network connection';
 
-        alert('Connection type: ' + states[networkState]);
+        document.getElementById('conexao').innerHTML('Connection type: ' + states[networkState]);
     }
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -62,5 +61,6 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+        this.conectado();
     }
 };
