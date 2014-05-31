@@ -34,6 +34,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        window.addEventListener("batterystatus", bateria, false);
     },
 
     conectado: function(){
@@ -52,6 +53,11 @@ var app = {
       console.log('Tipo da conexao: ' + states[networkState]);
       document.getElementById('conexao').innerHTML = 'Tipo da conexao: ' + states[networkState];
     },
+
+    bateria: function(info){
+      document.getElementById('bateria').innerHTML = "Level: " + info.level + " isPlugged: " + info.isPlugged;
+    },
+
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
