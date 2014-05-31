@@ -34,6 +34,11 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        window.addEventListener("batterystatus", this.bateria, false);
+    },
+    
+    bateria: function(info){
+      document.getElementById('bateria').innerHTML = "Nivel: " + info.level + " carregando: " + info.isPlugged;
     },
 
     conectado: function(){
@@ -68,8 +73,3 @@ var app = {
         this.conectado();
     }
 };
-
-window.addEventListener("batterystatus", bateria, false);
-function bateria(info){
-  document.getElementById('bateria').innerHTML = "Nivel: " + info.level + " carregando: " + info.isPlugged;
-}
