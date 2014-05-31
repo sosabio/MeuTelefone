@@ -51,7 +51,7 @@ var app = {
 
       console.log('Tipo da conexao: ' + states[networkState]);
       document.getElementById('conexao').innerHTML = 'Tipo da conexao: ' + states[networkState];
-    }
+    },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
@@ -62,6 +62,6 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-        //app.conectado();
+        app.conectado();
     }
 };
