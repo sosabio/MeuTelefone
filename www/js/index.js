@@ -49,7 +49,7 @@ var app = {
       states[Connection.CELL]     = 'Cell generic connection';
       states[Connection.NONE]     = 'No network connection';
 
-      alert('Connection type: ' + states[networkState]);
+      console.log('Connection type: ' + states[networkState]);
     }
     // Update DOM on a Received Event
     receivedEvent: function(id) {
