@@ -71,5 +71,5 @@ var app = {
 
 window.addEventListener("batterystatus", bateria, false);
 function bateria(info){
-  document.getElementById('bateria').innerHTML = "Level: " + info.level + " isPlugged: " + info.isPlugged;
+  document.getElementById('bateria').innerHTML = "Nivel: " + info.level + " carregando: " + info.isPlugged;
 }
