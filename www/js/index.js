@@ -42,15 +42,15 @@ var app = {
     
     battCrit: function(info) {
       //navigator.notification.alert("Your battery is SUPER low!");
-      drawStatus(info);
+      this.drawStatus(info);
     },
     battLow: function(info) {
       //navigator.notification.alert("Your battery is low!");
-      drawStatus(info);
+      this.drawStatus(info);
     },
 
     battStat: function(info) {
-      drawStatus(info);
+      this.drawStatus(info);
     },
 
     conectado: function(){
