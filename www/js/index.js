@@ -35,9 +35,9 @@ var app = {
     onDeviceReady: function() {
       app.receivedEvent('deviceready');
       app.conectado();
-      document.addEventListener("batterycritical", app.battCrit, false);
-      document.addEventListener("batterylow", app.battLow, false);
-      document.addEventListener("batterystatus", app.battStat, false);
+      window.addEventListener("batterycritical", app.battCrit, false);
+      window.addEventListener("batterylow", app.battLow, false);
+      window.addEventListener("batterystatus", app.battStat, false);
     },
     
     battCrit: function(info) {
