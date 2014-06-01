@@ -41,11 +41,11 @@ var app = {
     },
     
     battCrit: function(info) {
-      navigator.notification.alert("Your battery is SUPER low!");
+      //navigator.notification.alert("Your battery is SUPER low!");
       drawStatus(info);
     },
     battLow: function(info) {
-      navigator.notification.alert("Your battery is low!");
+      //navigator.notification.alert("Your battery is low!");
       drawStatus(info);
     },
 
