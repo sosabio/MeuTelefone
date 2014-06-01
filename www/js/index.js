@@ -33,12 +33,24 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-        window.addEventListener("batterystatus", this.bateria, false);
+      app.receivedEvent('deviceready');
+      app.conectado();
+      window.addEventListener("batterycritical", app.battCrit, false);
+      window.addEventListener("batterylow", app.battLow, false);
+      window.addEventListener("batterystatus", app.battStat, false);
     },
     
-    bateria: function(info){
-      document.getElementById('bateria').innerHTML = "Nivel: " + info.level + " carregando: " + info.isPlugged;
+    battCrit: function(info) {
+      navigator.notification.alert("Your battery is SUPER low!");
+      drawStatus(info);
+    },
+    battLow: function(info) {
+      navigator.notification.alert("Your battery is low!");
+      drawStatus(info);
+    },
+
+    battStat: function(info) {
+      drawStatus(info);
     },
 
     conectado: function(){
@@ -58,19 +70,21 @@ var app = {
       document.getElementById('conexao').innerHTML = 'Tipo da conexao: ' + states[networkState];
     },
 
-   
+    drawStatus: function(info){
+      var s = "<p><b>Status da bateria.</b><br/>";
+      s += "Nivel: "+info.level + "<br/>";
+      s += "Plugged in is "+info.isPlugged;
+      s += "</p>";
+      document.getElementById('bateria').innerHTML = s;
+    },
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+      var parentElement = document.getElementById(id);
+      var listeningElement = parentElement.querySelector('.listening');
+      var receivedElement = parentElement.querySelector('.received');
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-        alert(id);
-
-        console.log('Received Event: ' + id);
-        this.conectado();
+      listeningElement.setAttribute('style', 'display:none;');
+      receivedElement.setAttribute('style', 'display:block;');
     }
 };
