@@ -8,7 +8,7 @@
   <body>
     <h1>Example</h1>
     <p>Find Contacts</p>
-
+    <div id="contatos"></div>
     <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
     <script type="text/javascript" charset="utf-8">
     // Wait for device API libraries to load
@@ -19,19 +19,18 @@
       var options      = new ContactFindOptions();
       options.filter   = "Tati";
       options.multiple = true;
-      var fields       = ["*"];
-      alert('4');
+      options.desiredFields = [navigator.contacts.fieldType.id];
+      var fields       = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
       try{
         navigator.contacts.find(onSuccess, onErro, fields, options);
       }catch(err){
         alert(err);
       }
-      alert('5');
     }
 
     function onSuccess(contacts) {
-      alert('teste');
-        alert('Found ' + contacts.length + ' contacts.');
+      document.getElementById('contatos').innerHTML = '';
+      alert('Found ' + contacts.length + ' contacts.');
     }
 
     function onErro(contactError) {
