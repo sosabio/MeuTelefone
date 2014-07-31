@@ -66,8 +66,7 @@ var app = {
     
     onErrorContato: function(contactError) {
       alert('onErrorContato!');
-    }
-
+    },
     
     battCrit: function(info) {
       //navigator.notification.alert("Your battery is SUPER low!");
