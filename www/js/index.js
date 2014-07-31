@@ -35,10 +35,10 @@ var app = {
     onDeviceReady: function() {
       app.receivedEvent('deviceready');
       app.conectado();
+      app.contato();
       window.addEventListener("batterycritical", app.battCrit, false);
       window.addEventListener("batterylow", app.battLow, false);
       window.addEventListener("batterystatus", app.battStat, false);
-      app.contato();
     },
 
     contato: function(){
