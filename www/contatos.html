@@ -17,10 +17,8 @@
     function onDeviceReady() {
       // find all contacts with 'Bob' in any name field
       var options      = new ContactFindOptions();
-      options.filter   = "Tati";
-      options.multiple = true;
-      options.desiredFields = [navigator.contacts.fieldType.id];
-      var fields       = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
+      options.filter = "";
+      var fields       = ["displayName", "name"];
       try{
         navigator.contacts.find(onSuccess, onErro, fields, options);
       }catch(err){
