@@ -15,6 +15,7 @@
     document.addEventListener("deviceready", onDeviceReady, false);
     // device APIs are available
     function onDeviceReady() {
+      alert('1');
       // find all contacts with 'Bob' in any name field
       var options = new ContactFindOptions();
       options.filter = "Tatiana";
@@ -23,6 +24,7 @@
     }
     // onSuccess: Get a snapshot of the current contacts
     function onSuccess(contacts) {
+      alert('2');
       for (var i = 0; i < contacts.length; i++) {
         console.log("Display Name = " + contacts[i].displayName);
       }
