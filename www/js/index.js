@@ -39,6 +39,34 @@ var app = {
       window.addEventListener("batterylow", app.battLow, false);
       window.addEventListener("batterystatus", app.battStat, false);
     },
+
+    contato: function(){
+      var options = new ContactFindOptions();
+      options.filter = "";
+      var filter = ["displayName", "addresses"];
+      navigator.contacts.find(filter, onSuccessContato, onErrorContato, options);
+    },
+
+    onSuccessContato: function(contacts) {
+        // display the address information for all contacts
+        for (var i = 0; i < contacts.length; i++) {
+            for (var j = 0; j < contacts[i].addresses.length; j++) {
+                document.getElementById('contatos').innerHTML = ("Pref: "           + contacts[i].addresses[j].pref          + "\n" +
+                      "Type: "           + contacts[i].addresses[j].type          + "\n" +
+                      "Formatted: "      + contacts[i].addresses[j].formatted     + "\n" +
+                      "Street Address: " + contacts[i].addresses[j].streetAddress + "\n" +
+                      "Locality: "       + contacts[i].addresses[j].locality      + "\n" +
+                      "Region: "         + contacts[i].addresses[j].region        + "\n" +
+                      "Postal Code: "    + contacts[i].addresses[j].postalCode    + "\n" +
+                      "Country: "        + contacts[i].addresses[j].country);
+            }
+        }
+    };
+    
+    onErrorContato: function(contactError) {
+      alert('onErrorContato!');
+    }
+
     
     battCrit: function(info) {
       //navigator.notification.alert("Your battery is SUPER low!");
