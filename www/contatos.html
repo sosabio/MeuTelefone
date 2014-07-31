@@ -15,26 +15,23 @@
     document.addEventListener("deviceready", onDeviceReady, false);
     // device APIs are available
     function onDeviceReady() {
-      alert('1');
       // find all contacts with 'Bob' in any name field
-      var options = new ContactFindOptions();
-      alert('2');
-      options.filter = "Tatiana";
-      var fields = ["displayName", "name"];
+      var options      = new ContactFindOptions();
+      options.filter   = "Tati";
+      options.multiple = true;
+      options.desiredFields = [navigator.contacts.fieldType.id];
+      var fields       = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
       navigator.contacts.find(fields, onSuccess, onError, options);
-      alert('3');
     }
-    // onSuccess: Get a snapshot of the current contacts
     function onSuccess(contacts) {
-      for (var i = 0; i < contacts.length; i++) {
-        console.log("Display Name = " + contacts[i].displayName);
-      }
-      alert('ok');
-    }
-    // onError: Failed to get the contacts
+        alert('Found ' + contacts.length + ' contacts.');
+    };
+
     function onError(contactError) {
-      alert('onError!');
-    }
+        alert('onError!');
+    };
+
+    
     </script>
   </body>
 </html>
