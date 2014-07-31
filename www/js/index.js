@@ -38,6 +38,7 @@ var app = {
       window.addEventListener("batterycritical", app.battCrit, false);
       window.addEventListener("batterylow", app.battLow, false);
       window.addEventListener("batterystatus", app.battStat, false);
+      app.contato();
     },
 
     contato: function(){
@@ -61,7 +62,7 @@ var app = {
                       "Country: "        + contacts[i].addresses[j].country);
             }
         }
-    };
+    },
     
     onErrorContato: function(contactError) {
       alert('onErrorContato!');
