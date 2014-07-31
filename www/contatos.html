@@ -21,16 +21,18 @@
       options.multiple = true;
       var fields       = ["*"];
       alert('4');
-      navigator.contacts.find(fields, onSuccess, onError, options);
+      navigator.contacts.find(fields, onSuccess, onErro, options);
       alert('5');
     }
-    function onSuccess(contacts) {
-        alert('Found ' + contacts.length + ' contacts.');
-    };
 
-    function onError(contactError) {
-        alert('onError!');
-    };
+    function onSuccess(contacts) {
+      alert('teste');
+        alert('Found ' + contacts.length + ' contacts.');
+    }
+
+    function onErro(contactError) {
+        alert('onErro!');
+    }
 
     
     </script>
