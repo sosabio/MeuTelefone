@@ -16,12 +16,17 @@
     // device APIs are available
     function onDeviceReady() {
       // find all contacts with 'Bob' in any name field
+      alert('1');
       var options      = new ContactFindOptions();
+      alert('2');
       options.filter   = "Tati";
       options.multiple = true;
       options.desiredFields = [navigator.contacts.fieldType.id];
+      alert('3');
       var fields       = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
+      alert('4');
       navigator.contacts.find(fields, onSuccess, onError, options);
+      alert('5');
     }
     function onSuccess(contacts) {
         alert('Found ' + contacts.length + ' contacts.');
