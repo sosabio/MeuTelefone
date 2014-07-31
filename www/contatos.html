@@ -8,18 +8,21 @@
   <body>
     <h1>Example</h1>
     <p>Find Contacts</p>
-    
+
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
     // Wait for device API libraries to load
     document.addEventListener("deviceready", onDeviceReady, false);
     // device APIs are available
     function onDeviceReady() {
+      alert('1');
       // find all contacts with 'Bob' in any name field
       var options = new ContactFindOptions();
+      alert('2');
       options.filter = "Tatiana";
       var fields = ["displayName", "name"];
       navigator.contacts.find(fields, onSuccess, onError, options);
+      alert('3');
     }
     // onSuccess: Get a snapshot of the current contacts
     function onSuccess(contacts) {
