@@ -36,32 +36,9 @@ var app = {
       console.log('onDeviceReady');
       app.receivedEvent('deviceready');
       app.conectado();
-      app.contato();
       window.addEventListener("batterycritical", app.battCrit, false);
       window.addEventListener("batterylow", app.battLow, false);
       window.addEventListener("batterystatus", app.battStat, false);
-    },
-
-    contato: function(){
-      console.log('contato');
-      var options = new ContactFindOptions();
-      options.filter = "";
-      options.multiple=true;    // return multiple results
-      var filter = ["displayName"];
-      navigator.contacts.find(filter, app.onSuccessContato, app.onErrorContato, options);
-    },
-
-    onSuccessContato: function(contacts) {
-      console.log('onSuccessContato');
-      console.log(contacts.length);
-      alert(contacts.length);
-      for (var i = 0; i < contacts.length; i++) {
-        alert(contacts[i].displayName);
-      }
-    },
-    
-    onErrorContato: function(contactError) {
-      alert('onErrorContato!');
     },
     
     battCrit: function(info) {
