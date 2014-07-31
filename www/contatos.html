@@ -21,7 +21,11 @@
       options.multiple = true;
       var fields       = ["*"];
       alert('4');
-      navigator.contacts.find(fields, onSuccess, onErro, options);
+      try{
+        navigator.contacts.find(onSuccess, onErro, fields, options);
+      }catch(err){
+        alert(err);
+      }
       alert('5');
     }
 
