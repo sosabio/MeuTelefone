@@ -30,6 +30,16 @@
 
     function onSuccess(contacts) {
       document.getElementById('contatos').innerHTML = '';
+      var nomes = '';
+      for (var i = 0; i < contacts.length; i++) {
+        nomes += "Formatted: "  + contacts[i].name.formatted       + "\n" +
+            "Family Name: "  + contacts[i].name.familyName      + "\n" +
+            "Given Name: "   + contacts[i].name.givenName       + "\n" +
+            "Middle Name: "  + contacts[i].name.middleName      + "\n" +
+            "Suffix: "       + contacts[i].name.honorificSuffix + "\n" +
+            "Prefix: "       + contacts[i].name.honorificSuffix;
+      }
+      document.getElementById('contatos').innerHTML = nomes;
       alert('Found ' + contacts.length + ' contacts.');
     }
 
