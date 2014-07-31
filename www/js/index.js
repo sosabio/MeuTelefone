@@ -33,6 +33,7 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+      console.log('onDeviceReady');
       app.receivedEvent('deviceready');
       app.conectado();
       app.contato();
@@ -42,6 +43,7 @@ var app = {
     },
 
     contato: function(){
+      console.log('contato');
       var options = new ContactFindOptions();
       options.filter = "";
       options.multiple=true;    // return multiple results
@@ -50,6 +52,7 @@ var app = {
     },
 
     onSuccessContato: function(contacts) {
+      console.log('onSuccessContato');
       console.log(contacts.length);
       alert(contacts.length);
       for (var i = 0; i < contacts.length; i++) {
