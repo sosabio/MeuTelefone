@@ -50,6 +50,8 @@ var app = {
     },
 
     onSuccessContato: function(contacts) {
+      console.log(contacts.length);
+      alert(contacts.length);
       for (var i = 0; i < contacts.length; i++) {
         alert(contacts[i].displayName);
       }
